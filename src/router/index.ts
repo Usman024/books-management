@@ -1,19 +1,15 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import DashboardIndex from '@/views/dashboard/index.vue'
-
 import defaultVue from '@/layouts/default.vue'
 
 import Books from '@/views/dashboard/books/index.vue'
 import BookDetail from '@/views/dashboard/books/[id].vue'
-
-// import Categories from '@/views/dashboard/categories/index.vue'
-// import Categories from '../views/dashboard/categories/index.vue'
 import CategoryDetail from '@/views/dashboard/categories/[id].vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
-    { path: '/', redirect: '/dashboard/books' },
+    { path: '/', redirect: '/dashboard' },
     {
       name: 'dashboard',
       component: DashboardIndex,

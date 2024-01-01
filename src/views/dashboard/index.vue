@@ -2,8 +2,6 @@
   <div class="pb-36 px-4 sm:px-10 md:px-20">
     <p class="text-2xl font-[lato] font-semibold">Key Concepts used in the project</p>
     <ul class="mt-4">
-      <li class="list-decimal">Template Syntax (Text Interpolation)</li>
-      <li class="list-decimal">Reactive State (Ref, Computed, Watchers)</li>
       <li class="list-decimal">Vue directives (v-if, v-else, v-else-if,v-for,v-show etc )</li>
       <li class="list-decimal">
         State Management using pinia (Can also be done with vuex or composables)
@@ -18,7 +16,11 @@
       <li class="list-decimal">Props,emits,events, and component-bonding using v-model</li>
       <li class="list-decimal">Slots concept</li>
       <li class="list-decimal">Routing</li>
+      <li class="list-decimal">Reactive State (Ref, Computed, Watchers)</li>
+      <li class="list-decimal">Template Syntax (Text Interpolation)</li>
       <li class="list-decimal">Not used v-html to prevent XXS</li>
+      <li class="list-decimal">Vuetify for building ui faster</li>
+      <li class="list-decimal">Vuetify build in css classes</li>
     </ul>
 
     <p class="text-2xl font-[lato] font-semibold mt-8">Things left For GOOD UX</p>
