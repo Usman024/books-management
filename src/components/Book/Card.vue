@@ -48,7 +48,7 @@
             </span>
           </v-card-text>
           <v-card-text class="mt-n6">
-            <span class="text-primary text-lg">Categories:</span>
+            <span class="text-primary text-lg">Categories: (Click to see relevant books)</span>
             <div class="mt-3 flex gap-3 flex-wrap">
               <v-chip
                 class="cursor-pointer"
