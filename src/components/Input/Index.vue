@@ -13,12 +13,13 @@
     :suffix="sufix"
     :validate-on="validateOn"
     :size="size"
+    ref="inputRef"
   />
 </template>
 
 <script setup lang="ts">
-import { type PropType } from 'vue'
-
+import { ref, type PropType } from 'vue'
+const inputRef = ref(null)
 type variant =
   | 'Solo'
   | 'outlined'

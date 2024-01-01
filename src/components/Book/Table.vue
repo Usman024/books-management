@@ -46,11 +46,15 @@ async function deleteBook(id: string) {
           <td>{{ book?.language ?? '' }}</td>
           <td>{{ book?.price ?? '' }}</td>
           <td>{{ book?.pages ?? '' }}</td>
-          <td>
+          <td class="flex items-center gap-2">
             <router-link :to="`/dashboard/books/${book?.id ?? ''}`">
               <v-icon icon="mdi-eye" />
             </router-link>
-            <v-icon icon="mdi-delete-empty" class="ml-4" @click="deleteBook(book?.id ?? '')" />
+            <v-icon
+              icon="mdi-delete-empty"
+              class="ml-4 text-error"
+              @click="deleteBook(book?.id ?? '')"
+            />
           </td>
         </tr>
       </tbody>

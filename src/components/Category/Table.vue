@@ -27,8 +27,8 @@ async function deleteCategory(id: string) {
   )
 }
 
-function booksInCategory(name: string) {
-  router.push(`/dashboard/books?category=${name}`)
+function booksInCategory(id: string) {
+  router.push(`/dashboard/books?categoryId=${id}`)
 }
 
 onMounted(() => {
@@ -44,6 +44,7 @@ onMounted(() => {
           <th class="text-left text-lg">No.</th>
           <th class="text-left text-lg">Name</th>
           <th class="text-left text-lg">Id</th>
+          <th class="text-left text-lg">Books</th>
 
           <th class="text-left text-lg">
             <v-icon icon="mdi-gesture-tap-button" />
@@ -55,20 +56,23 @@ onMounted(() => {
           <td>{{ i + 1 }}</td>
           <td>{{ category?.name ?? '' }}</td>
           <td>{{ category?.id ?? '' }}</td>
-          <td>
+          <td class="text-gray-600 cursor-pointer" @click="booksInCategory(category.id)">
+            <div class="d-flex gap-1">
+              View
+              <v-icon icon="mdi-eye" />
+            </div>
+          </td>
+
+          <td class="flex items-center gap-2">
             <v-icon
               icon="mdi-pencil"
               class="text-primary"
               @click="emits('editCategoryData', category)"
             />
-            <v-icon
-              icon="mdi-eye"
-              class="text-primary ml-4"
-              @click="booksInCategory(category.name)"
-            />
+
             <v-icon
               icon="mdi-delete-empty"
-              class="ml-4 text-primary"
+              class="ml-4 text-error"
               @click="deleteCategory(category?.id ?? '')"
             />
           </td>

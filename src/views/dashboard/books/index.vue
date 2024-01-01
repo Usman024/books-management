@@ -9,15 +9,16 @@ import { useBookStore } from '@/stores/books'
 const bookStore = useBookStore()
 const dialog = ref(false)
 const route = useRoute()
-const category: any = computed(() => {
-  return route.query.category
+const categoryId: any = computed(() => {
+  return route.query.categoryId ?? ''
 })
 
 const books = computed(() => {
   return bookStore.useBooks
 })
+
 watch(
-  () => category.value,
+  () => categoryId.value,
   (newValue) => {
     bookStore.getBooks(newValue)
   },
@@ -25,7 +26,7 @@ watch(
 )
 
 onMounted(async () => {
-  await bookStore.getBooks()
+  await bookStore.getBooks(categoryId.value)
 })
 </script>
 
@@ -44,8 +45,6 @@ onMounted(async () => {
         </div>
       </v-dialog>
     </div>
-
-    <!-- <v-skeleton-loader v-if="loading" :loading="true" type="table"></v-skeleton-loader> -->
 
     <BookTable v-if="books.length" :books="books" />
 

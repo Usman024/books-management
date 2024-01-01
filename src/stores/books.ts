@@ -17,16 +17,20 @@ export const useBookStore = defineStore('books', {
       return state.book
     }
   },
+
   actions: {
-    async getBooks(category: string = '') {
-      if (!!category)
+    async getBooks(categoryId: string | null = null) {
+      if (!!categoryId) {
+        const selectedCategory = doc(db, `categories/${categoryId}`)
         this.books = useCollection(
           query(
             collection(db, this.collectionName),
-            where('categories', 'array-contains', category ?? '')
+            where('categories', 'array-contains', selectedCategory ?? '')
           )
         )
-      else this.books = useCollection(query(collection(db, this.collectionName)))
+      } else {
+        this.books = useCollection(query(collection(db, this.collectionName)))
+      }
     },
 
     getBook(id: string = '') {

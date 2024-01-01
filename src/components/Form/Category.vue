@@ -107,6 +107,7 @@ watch(
         color="primary"
         type="submit"
         block
+        append-icon="mdi-camera-rear"
         size="large"
         class="mt-2"
       >

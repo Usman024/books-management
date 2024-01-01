@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 const navLinks = ref([
-  { label: 'Books', path: '/dashboard/books' },
-  { label: 'Categories', path: '/dashboard/categories' }
+  { label: 'Books', path: '/dashboard/books', icon: 'mdi-bookshelf' },
+  { label: 'Categories', path: '/dashboard/categories', icon: 'mdi-camera-rear' }
 ])
 </script>
 
@@ -19,6 +19,8 @@ const navLinks = ref([
           :key="i"
         >
           {{ link.label }}
+          <component :is="link.icon" />
+          <v-icon class="text-white" :icon="link.icon" />
         </router-link>
       </article>
     </section>

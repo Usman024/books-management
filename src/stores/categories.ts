@@ -23,7 +23,8 @@ export const useCategoryStore = defineStore('categories', {
     },
 
     getCategory(id: string = '') {
-      this.category = useDocument(doc(db, this.collectionName, id))
+      const res = useDocument(doc(db, this.collectionName, id))
+      this.category = res
     },
 
     updateCategory(category: any = '', id: string = '') {

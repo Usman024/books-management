@@ -1,11 +1,20 @@
 <script setup lang="ts">
+import { useCategoryStore } from '@/stores/categories'
 import { computed } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
-
+import { useRoute } from 'vue-router'
+const categoryStore = useCategoryStore()
 const route = useRoute()
 
+const categoryId: any = computed(async () => {
+  const id: any = route.query.categoryId
+  if (!!id) {
+    categoryStore.getCategory(id)
+  } else categoryStore.category = null
+  return id
+})
+
 const category = computed(() => {
-  return route.query.category
+  return categoryStore.useCategory
 })
 
 const currentPage = computed(() => {
@@ -17,7 +26,8 @@ const currentPage = computed(() => {
     details.title = 'Dashboard'
     details.icon = 'mdi-laptop'
   } else if (route.name == 'books') {
-    details.title = `${category.value ?? ''} Books`
+    if (!!categoryId.value) details.title = `${category?.value?.name ?? ''} Books`
+    else details.title = `Books`
     details.icon = 'mdi-bookshelf'
   } else if (route.name == 'book') {
     details.title = 'Book Details'
