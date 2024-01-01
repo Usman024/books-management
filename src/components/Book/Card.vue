@@ -50,7 +50,12 @@
           <v-card-text class="mt-n6">
             <span class="text-primary text-lg">Categories:</span>
             <div class="mt-3 flex gap-3 flex-wrap">
-              <v-chip v-for="(category, i) of book?.categories">{{ category?.name }}</v-chip>
+              <v-chip
+                class="cursor-pointer"
+                @click="booksInCategory(category.id)"
+                v-for="(category, i) of book?.categories"
+                >{{ category?.name }}</v-chip
+              >
             </div>
           </v-card-text>
         </div>
@@ -62,10 +67,18 @@
 <script setup lang="ts">
 // @ts-ignore
 import type { book } from '../../types/book'
+import { useRouter } from 'vue-router'
 import { ref, type PropType } from 'vue'
+
 const props = defineProps({
   book: { type: Object as PropType<book>, default: null }
 })
+
+const router = useRouter()
+
+function booksInCategory(id: string) {
+  router.push(`/dashboard/books?categoryId=${id}`)
+}
 
 const show = ref(false)
 </script>
