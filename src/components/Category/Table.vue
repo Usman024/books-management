@@ -55,7 +55,7 @@ onMounted(() => {
           <td>{{ i + 1 }}</td>
           <td>{{ category?.name ?? '' }}</td>
           <td>{{ category?.id ?? '' }}</td>
-          <td>
+          <td class="flex items-center gap-2">
             <v-icon
               icon="mdi-pencil"
               class="text-primary"
@@ -68,7 +68,7 @@ onMounted(() => {
             />
             <v-icon
               icon="mdi-delete-empty"
-              class="ml-4 text-primary"
+              class="ml-4 text-error"
               @click="deleteCategory(category?.id ?? '')"
             />
           </td>
