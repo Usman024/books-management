@@ -31,6 +31,11 @@
       <li class="list-decimal">Animations</li>
       <li class="list-decimal">Great Visual designs</li>
     </ul>
+    <div class="d-flex justify-center">
+      <router-link to="/dashboard/books">
+        <v-btn size="large" color="primary" class="my-8"> Check Books </v-btn>
+      </router-link>
+    </div>
   </div>
 </template>
 

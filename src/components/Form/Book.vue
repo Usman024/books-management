@@ -358,6 +358,7 @@ watch(
         variant="elevated"
         color="primary"
         type="submit"
+        append-icon="mdi-bookshelf"
         block
         size="large"
         class="mt-2"

@@ -18,7 +18,7 @@ onMounted(() => {
   <div class="pb-10">
     <div class="text-center">
       <div class="d-flex justify-end mb-10">
-        <v-btn prepend-icon="mdi-bookshelf" color="primary" @click="dialog = true">
+        <v-btn prepend-icon="mdi-camera-rear" color="primary" @click="dialog = true">
           Create Category
         </v-btn>
       </div>
